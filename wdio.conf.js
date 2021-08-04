@@ -31,7 +31,7 @@ exports.config = {
     },
     specs: [
         //'./test/specs/**/*.js'
-         'test/specs/firstTest.js'
+         'test/specs/ECommerceE2E.js'
        // 'test/specs/poTest.js'
     ],
     // Patterns to exclude.

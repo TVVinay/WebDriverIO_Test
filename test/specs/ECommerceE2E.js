@@ -1,6 +1,7 @@
 const assert = require('chai').expect
+const fetch = require("node-fetch");
 describe('End to End Testing for Ecommerce App', () => {
-    it('End to End testing', () => {
+    xit('End to End testing', () => {
         var products = ["Blackberry", "Nokia Edge"]
 
         browser.url("https://www.rahulshettyacademy.com/loginpagePractise/")
@@ -34,8 +35,6 @@ describe('End to End Testing for Ecommerce App', () => {
         browser.pause(3000)
 
 
-
-
     })
 
     xit('End to End BMS', () => {
@@ -45,10 +44,17 @@ describe('End to End Testing for Ecommerce App', () => {
         let citiesList = $$("span.sc-dEfkYy.kgktjs")
         citiesList.filter(city => city.getText() === "Mumbai").map(specificCity => specificCity.click())
         $(".sc-dEoRIm.cTgmVo a:nth-child(1)").click()
-        browser.pause(3000)
-
-
-
+        browser.pause(3000);
     })
 
+    it('To check broken links on the vedantu page', () => {
+        browser.url('https://www.amazon.in/')
+        const links = $$('a');
+        const urls = links.map(link =>link.getAttribute('href'));
+        for(let i =0; i<urls.length;i++){
+            const request = fetch(urls[i]);
+            console.log(request.statusCodes)
+        }
+        
+    })
 })
